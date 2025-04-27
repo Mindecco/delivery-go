@@ -5,7 +5,7 @@
 배달 주문부터 라이더 배차, 실시간 위치 추적, 배달 완료까지 전 과정을 지원하는 웹 서비스입니다.
 
 - **Frontend**는 실제 구현하지 않고, Backend 기능 개발에 집중하였습니다.
-- **Backend**는 모듈화 구조로 분리되어 개발되었습니다.
+- **Backend**는 모놀리틱 구조로 추후 확장성을 고려하여 멀티모듈로 분리되어 개발되었습니다.
 
 ## 🛠️ 기술 스택
 - Java 21.0.2
@@ -18,11 +18,13 @@
 
 
 ## 🏛️ 아키텍처 다이어그램
+![image](https://github.com/user-attachments/assets/d3e637ce-aee6-49de-b8e1-df33d9042874)
+
 - `main-app` : 애플리케이션 실행 및 설정
-- `module-auth` : 사용자 인증/인가
+- `module-auth` : 사용자 JWT 인증, 로그인
 - `module-user` : 사용자 정보 관리
 - `module-order` : 주문 생성 및 주문 관리
-- `module-delivery` : 라이더 배차, 위치 추적, 배달 진행 관리
+- `module-delivery` : 라이더 배차, 라이더 실시간 위치 저장, 배달 진행 관리
 - `module-common` : 공통 유틸리티 및 공통 엔티티
 
 ## ✨ 주요 기능
