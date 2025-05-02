@@ -32,7 +32,12 @@
 - 회원 가입 및 로그인
 - 음식 주문 생성
 - 주문에 따른 라이더 배정
-![image](https://github.com/user-attachments/assets/afea842f-b43a-4591-a6fe-aaad76f6b1fe)
+
+
+
+
+  ![image](https://github.com/user-attachments/assets/afea842f-b43a-4591-a6fe-aaad76f6b1fe)
+
 - 라이더 실시간 위치(위도/경도) 와 Google Routes API를 활용한 ETA(Estimated Time of Arrival) 계산 및 저장
   ![image](https://github.com/user-attachments/assets/fec4b42e-74ff-43b1-b38f-fb82ca8462f7)
 - 주문 상태 변경 (주문 → 배달중 → 배달완료)
