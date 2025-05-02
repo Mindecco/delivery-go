@@ -27,10 +27,14 @@
 - `module-delivery` : 라이더 배차, 라이더 실시간 위치 저장, 배달 진행 관리
 - `module-common` : 공통 유틸리티 및 공통 엔티티
 
+
 ## ✨ 주요 기능
 - 회원 가입 및 로그인
 - 음식 주문 생성
 - 주문에 따른 라이더 배정
+  
+![image](https://github.com/user-attachments/assets/afea842f-b43a-4591-a6fe-aaad76f6b1fe)
+
 - 라이더 실시간 위치(WGS84 기반 위도/경도) 저장
 - Google Routes API를 활용한 예상 배달 도착 시간 계산
 - 주문 상태 변경 (주문 → 배달중 → 배달완료)
