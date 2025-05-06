@@ -2,6 +2,7 @@ package org.deliverygo.delivery.service;
 
 import static org.deliverygo.global.exception.ErrorType.*;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.deliverygo.delivery.client.GoogleDirectionClient;
@@ -21,6 +22,7 @@ public class DeliveryService {
 
     private final RiderRepository riderRepository;
 
+    @CircuitBreaker(name = "google-direction", fallbackMethod = "fallbackEta")
     public void saveDeliveryLocation(SaveDeliveryLocationRequest request) {
         GoogleEtaRequest googleEtaRequest = GoogleEtaRequest.of(request);
 
@@ -28,7 +30,9 @@ public class DeliveryService {
             .thenAccept(result ->
                 riderRepository.save(Rider.of(request, result.getEtaInSeconds())))
             .exceptionally(e -> {
-                throw new BusinessException(GOOGLE_API_ERROR, e);
+                log.error("google api 실패로 eta 값 갱신에 실패했습니다.");
+                riderRepository.save(Rider.of(request));
+                return null;
             });
     }
 }
