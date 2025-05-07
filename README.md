@@ -18,7 +18,8 @@
 
 
 ## 🏛️ 아키텍처 다이어그램
-![image](https://github.com/user-attachments/assets/d3e637ce-aee6-49de-b8e1-df33d9042874)
+![image](https://github.com/user-attachments/assets/70757b91-76a7-47cc-83e5-d4c06d2e70c7)
+
 
 - `main-app` : 애플리케이션 실행 및 설정
 - `module-auth` : 사용자 JWT 인증, 로그인
@@ -36,11 +37,14 @@
 
 
 
-  ![image](https://github.com/user-attachments/assets/439e22a5-18ee-4dc2-9d40-fe8da1506a07)
+  ![image](https://github.com/user-attachments/assets/52810755-9d1e-47ee-ba66-e8c6d364efaf)
+
 
 
 - 라이더 실시간 위치(위도/경도) 와 Google Routes API를 활용한 ETA(Estimated Time of Arrival) 계산 및 저장
-  ![image](https://github.com/user-attachments/assets/fec4b42e-74ff-43b1-b38f-fb82ca8462f7)
+  ![image](https://github.com/user-attachments/assets/7e77d516-a635-490b-b161-cd47bb823194)
+
+
 - 주문 상태 변경 (주문 → 배달중 → 배달완료)
 
 ## 📚 참고사항
