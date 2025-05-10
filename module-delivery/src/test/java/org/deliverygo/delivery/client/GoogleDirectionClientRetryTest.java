@@ -75,6 +75,6 @@ class GoogleDirectionClientRetryTest {
 
     private  GoogleEtaRequest createRequest() {
         return GoogleEtaRequest.of(new SaveDeliveryLocationRequest(
-            "test-rider", new Location(224.51, -20.5), new Location(21.51, 224.5)));
+            "id-1","test-rider", new Location(224.51, -20.5), new Location(21.51, 224.5)));
     }
 }
