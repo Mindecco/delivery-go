@@ -1,6 +1,7 @@
 package org.deliverygo.order.service;
 
 import lombok.RequiredArgsConstructor;
+import org.deliverygo.global.dto.OutboxEvent;
 import org.deliverygo.global.exception.BusinessException;
 import org.deliverygo.login.entity.User;
 import org.deliverygo.login.repository.UserRepository;
@@ -8,7 +9,6 @@ import org.deliverygo.order.dto.OrderCreateRequest;
 import org.deliverygo.order.entity.Order;
 import org.deliverygo.order.entity.OrderMenu;
 import org.deliverygo.order.kafka.OrderCreateEventMapper;
-import org.deliverygo.order.kafka.OrderEventProducer;
 import org.deliverygo.order.repository.OrderRepository;
 import org.deliverygo.restaurant.entity.Menu;
 import org.deliverygo.restaurant.entity.Restaurant;
@@ -29,7 +29,7 @@ public class OrderService {
     private final RestaurantRepository restaurantRepository;
     private final OrderRepository orderRepository;
     private final PaymentService paymentService;
-    private final OrderEventProducer orderEventProducer;
+    private final OrderEventService orderEventService;
 
     @Transactional
     public long order(OrderCreateRequest orderCreateRequest) {
@@ -45,7 +45,7 @@ public class OrderService {
 
         paymentService.payment(savedOrder);
 
-        orderEventProducer.sendOrderCreate(OrderCreateEventMapper.toDto(user, order));
+        orderEventService.publishSaveEvent(OutboxEvent.of(OrderCreateEventMapper.toDto(user, order)));
 
         return savedOrder.getId();
     }
