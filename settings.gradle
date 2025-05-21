@@ -6,3 +6,5 @@ include 'module-user'
 include 'module-order'
 include 'module-common'
 include 'module-delivery'
+include 'module-consumer'
+
